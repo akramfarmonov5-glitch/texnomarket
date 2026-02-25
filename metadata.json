@@ -1,0 +1,8 @@
+{
+  "name": "Online Texno Do'kon",
+  "description": "Eng so'nggi gadjetlar va elektronika mahsulotlari do'koni. Ovozli yordamchi orqali buyurtma berish imkoniyati.",
+  "requestFramePermissions": [
+    "microphone",
+    "geolocation"
+  ]
+}

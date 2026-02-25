@@ -1,0 +1,39 @@
+{
+  "name": "online-texno-dokon",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "api": "node --env-file=.env.local server/index.js",
+    "build": "vite build && node scripts/prerender-static-routes.mjs",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "test": "npm run test:unit",
+    "test:unit": "vitest run",
+    "test:unit:watch": "vitest",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "test:e2e:install": "playwright install chromium"
+  },
+  "dependencies": {
+    "@google/genai": "^1.33.0",
+    "leaflet": "1.9.4",
+    "lucide-react": "^0.561.0",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "react-router-dom": "^7.10.1"
+  },
+  "overrides": {
+    "minimatch": "^9.0.6"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.58.2",
+    "@types/node": "^22.14.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "jsdom": "^28.1.0",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.0",
+    "vitest": "^4.0.18"
+  }
+}
