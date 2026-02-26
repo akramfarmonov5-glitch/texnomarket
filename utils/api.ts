@@ -11,6 +11,15 @@ import {
 } from '../types';
 
 const API_BASE = (import.meta.env.VITE_API_URL || 'http://127.0.0.1:8787').replace(/\/$/, '');
+const API_HOSTNAME = (() => {
+  try {
+    return new URL(API_BASE).hostname;
+  } catch {
+    return '';
+  }
+})();
+const USE_NGROK_BYPASS_HEADER =
+  API_HOSTNAME.endsWith('ngrok-free.app') || API_HOSTNAME.endsWith('ngrok.app');
 
 type ApiOptions = RequestInit & { user?: User | null };
 
@@ -18,6 +27,9 @@ const buildHeaders = (options: ApiOptions) => {
   const headers = new Headers(options.headers || {});
   if (options.body && !headers.has('Content-Type')) {
     headers.set('Content-Type', 'application/json');
+  }
+  if (USE_NGROK_BYPASS_HEADER) {
+    headers.set('ngrok-skip-browser-warning', '1');
   }
   if (options.user?.sessionToken) {
     headers.set('Authorization', `Bearer ${options.user.sessionToken}`);

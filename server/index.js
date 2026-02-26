@@ -156,7 +156,7 @@ const json = (req, res, status, payload) => {
   const headers = {
     'Content-Type': 'application/json; charset=utf-8',
     'Access-Control-Allow-Origin': corsOrigin,
-    'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+    'Access-Control-Allow-Headers': 'Content-Type, Authorization, ngrok-skip-browser-warning',
     'Access-Control-Allow-Methods': 'GET, POST, PUT, PATCH, DELETE, OPTIONS',
   };
   if (reqOrigin) {
