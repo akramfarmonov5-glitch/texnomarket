@@ -1285,6 +1285,16 @@ button {
 /* ==========================================
    BOTTOM NAV (Mobile)
    ========================================== */
+.mobile-only {
+  display: none !important;
+}
+
+@media (max-width: 1024px) {
+  .mobile-only {
+    display: flex !important;
+  }
+}
+
 .bottom-nav {
   position: fixed;
   bottom: 0;
